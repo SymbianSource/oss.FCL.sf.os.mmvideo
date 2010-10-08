@@ -1,0 +1,22 @@
+/*
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+// The export of this IBY is deliberately not guarded by #ifdef NCP_COMMON_OMXIL_SHAI_SUPPORT_ENABLED so that it
+// can always be #included by other IBYs/OBYs. However, if NCP_COMMON_OMXIL_SHAI_SUPPORT_ENABLED is not defined
+// then the IBY will effectively be empty and not include anything in the ROM.
+
+PRJ_EXPORTS
+videoomxilcompref.iby         /epoc32/rom/include/videoomxilcompref.iby

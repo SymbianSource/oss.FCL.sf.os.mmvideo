@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SystemDefinition schema="3.0.0">
+	<package id="mmvideo" name="Multimedia Video" tech-domain="mm">
+		<collection id="mmvideo_plat" name="mmvideo Platform APIs">
+			<component id="omxilvideoextensions_api" name="OpenMAX IL Video Extensions" introduced="^4">
+				<meta rel="Api" href="mmvideo_plat/omxilvideoextensions_api/omxilvideoextensions_api.metaxml" />
+				<unit bldFile="mmvideo_plat/omxilvideoextensions_api/group" />
+			</component>
+		</collection>
+		<collection id="omxilvideocomps">
+			<component id="omxilvideocomps_iby" introduced="^4">
+				<!-- This is not a proper component, it just exports the collection-wide "videoomxilcompref.iby" -->
+				<unit bldFile="omxilvideocomps/group" />
+			</component>
+			<component id="omxil3gpdemuxer" name="OpenMAX IL 3GP Demuxer Component" introduced="^4">
+				<unit bldFile="omxilvideocomps/omxil3gpdemuxer/group" />
+			</component>
+			<component id="omxil3gpmuxer" name="OpenMAX IL 3GP Muxer Component" introduced="^4">
+				<unit bldFile="omxilvideocomps/omxil3gpmuxer/group" />
+			</component>
+			<component id="omxilclock" name="OpenMAX IL Clock Component" introduced="^4">
+				<unit bldFile="omxilvideocomps/omxilclock/group" />
+			</component>
+			<component id="omxilgraphicsink" name="OpenMAX IL Graphics Sink Component" introduced="^4">
+				<unit bldFile="omxilvideocomps/omxilgraphicsink/group" />
+				<unit bldFile="omxilvideocomps/omxilgraphicsink/tsrc/group" />
+			</component>
+			<component id="omxilvideoscheduler" name="OpenMAX IL Video Scheduler Component" introduced="^4">
+				<unit bldFile="omxilvideocomps/omxilvideoscheduler/group" />
+			</component>
+		</collection>
+	</package>
+</SystemDefinition>

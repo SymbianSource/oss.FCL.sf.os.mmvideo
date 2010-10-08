@@ -1,0 +1,118 @@
+//
+// Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description: 
+//
+
+LOAD_SUITE tsu_omxilgraphicsink
+
+START_TESTCASE MMVIDEO-OMX-GS-005-01-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-005-01-HP
+//! @SYMTestCaseDesc        HEAP test Empty this buffer using Allocate Buffer
+//! @SYMTestExpectedResults HEAP mark reports no memory leaks
+//! @SYMTestActions         Send command OMX_StateIdle and Allocate required number of buffers
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateExecuting and wait for callback to return OMX_EventCmdComplete
+//!                         Fill Allocated buffer with colour using filled CCameraBuffer*
+//!                         Call Empty this buffer and wait for DoEmptyBufferDone callback
+//!                         Call Empty this buffer for next buffer and repeat multiple times
+//!                         Send command OMX_StateIdle and wait for callback
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Repeat test once, using __MM_HEAP_MARK and __MM_HEAP_MARK to test HEAP size
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-005-01-HP
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-010-00-HP z:\omxil\configs\tsu_omxilgraphicsink.ini DoBufferDoneOne
+END_TESTCASE MMVIDEO-OMX-GS-005-01-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-005-02-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-005-02-HP
+//! @SYMTestCaseDesc        Empty this buffer using Allocate Buffer
+//! @SYMTestExpectedResults State is changed and callbacks are invoked
+//! @SYMTestActions         Send command OMX_StateIdle and Allocate required number of buffers
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateExecuting and wait for callback to return OMX_EventCmdComplete
+//!                         Fill Allocated buffer with colour using filled CCameraBuffer*
+//!                         Call Empty this buffer and wait for DoEmptyBufferDone callback
+//!                         Send command OMX_StateIdle and wait for callback
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Repeat test multiple times
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-005-02-HP
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-010-00-HP z:\omxil\configs\tsu_omxilgraphicsink.ini DoBufferDoneTwo
+END_TESTCASE MMVIDEO-OMX-GS-005-02-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-005-03-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-005-03-HP
+//! @SYMTestCaseDesc        Empty this buffer using Allocate Buffer
+//! @SYMTestExpectedResults State is changed and callbacks are invoked
+//! @SYMTestActions         Send command OMX_StateIdle and Allocate required number of buffers
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateExecuting and wait for callback to return OMX_EventCmdComplete
+//!                         Fill Allocated buffer with colour using filled CCameraBuffer*
+//!                         Call Empty this buffer and wait for DoEmptyBufferDone callback
+//!                         Call Empty this buffer for next buffer and repeat multiple times
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Increase buffer count incrementally and repeat test multiple times
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+// Fails due to OOM - under investigation. Test disabled as this failure sometimes interferes with subsequent test steps.
+// RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-005-03-HP
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-010-00-HP z:\omxil\configs\tsu_omxilgraphicsink.ini DoBufferDoneThree
+END_TESTCASE MMVIDEO-OMX-GS-005-03-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-005-04-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-005-04-HP
+//! @SYMTestCaseDesc        Empty this buffer using Allocate Buffer
+//! @SYMTestExpectedResults State is changed and callbacks are invoked
+//! @SYMTestActions         Send command OMX_StateIdle and Allocate required number of buffers
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateExecuting and wait for callback to return OMX_EventCmdComplete
+//!                         Fill Allocated buffer with colour using filled CCameraBuffer*
+//!                         Call Empty this buffer and wait for DoEmptyBufferDone callback
+//!                         Call Empty this buffer for next buffer and repeat multiple times
+//!                         Repeat test multiple times
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-005-04-HP
+END_TESTCASE MMVIDEO-OMX-GS-005-04-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-005-05-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-005-05-HP
+//! @SYMTestCaseDesc        Empty this buffer using Allocate Buffer
+//! @SYMTestExpectedResults State is changed and callbacks are invoked
+//! @SYMTestActions         Send command OMX_StateIdle and Allocate required number of buffers
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateExecuting and wait for callback to return OMX_EventCmdComplete
+//!                         Fill Allocated buffer with colour using filled CCameraBuffer*
+//!                         Call Empty this buffer and wait for DoEmptyBufferDone callback
+//!                         Call Empty this buffer for next buffer and repeat multiple times
+//!                         Send command OMX_StateIdle and wait for callback
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-005-05-HP
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-010-00-HP z:\omxil\configs\tsu_omxilgraphicsink.ini DoBufferDoneFour
+END_TESTCASE MMVIDEO-OMX-GS-005-05-HP

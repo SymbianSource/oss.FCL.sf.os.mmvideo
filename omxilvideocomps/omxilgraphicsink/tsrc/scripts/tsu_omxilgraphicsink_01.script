@@ -1,0 +1,164 @@
+//
+// Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description: 
+//
+
+LOAD_SUITE tsu_omxilgraphicsink
+
+START_TESTCASE MMVIDEO-OMX-GS-001-01-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-001-01-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Confirm OMX_GraphicSink component is initialized with the correct parameters and is initialized to the correct state
+//! @SYMTestExpectedResults The component is initialized correctly and in the right state
+//! @SYMTestActions         Create a OMX_GraphicSink component and check initial state OMX_StateLoaded
+//!                         Confirm OMX component name using GetComponentVersion
+//!                         Check default values for OMX_PARAM_PORTDEFINITIONTYPE
+//!                         Check default values for OMX_VIDEO_PARAM_PORTFORMATTYPE
+//!                         Send command to all suppported states using SendCommand
+//!                         Check state is unaltered with GetState
+//!							COmxILGraphicSink::CreateComponent
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkVPB0Port::GetParameter
+//!                         COmxILGraphicSinkVPB0Port::SetParameter
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-001-01-HP
+END_TESTCASE MMVIDEO-OMX-GS-001-01-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-001-02-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-001-02-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Test default parameters assigned and exported into a struct using the correct index type
+//!                         Then change Framerate value using the same structs and confirm the value is updated
+//! @SYMTestExpectedResults Framerate is updated in in OMX_VIDEO_PARAM_PORTFORMATTYPE and OMX_PARAM_PORTDEFINITIONTYPE
+//! @SYMTestActions         Using OMX_PARAM_PORTDEFINITIONTYPE set xFramerate OMX_ErrorUnsupportedSetting
+//!                         Confirm xFramerate value using OMX_PARAM_PORTDEFINITIONTYPE
+//!                         Confirm xFramerate value using OMX_VIDEO_PARAM_PORTFORMATTYPE
+//!                         Using OMX_VIDEO_PARAM_PORTFORMATTYPE set xFramerate OMX_ErrorUnsupportedSetting
+//!                         Confirm xFramerate value using OMX_VIDEO_PARAM_PORTFORMATTYPE -GetParameter
+//!                         Confirm xFramerate value using OMX_PARAM_PORTDEFINITIONTYPE -GetParameter
+//!							COmxILGraphicSinkVPB0Port::GetParameter
+//!                         COmxILGraphicSinkVPB0Port::SetParameter
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-001-02-HP
+END_TESTCASE MMVIDEO-OMX-GS-001-02-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-001-03-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-001-03-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Test default parameters assigned and exported into a struct using the correct index type
+//!                         Then change Framesize value using the same structs and confirm the value is updated
+//! @SYMTestExpectedResults Framesize is changed in the graphicsink component
+//! @SYMTestActions         Declare and populate data structure OMX_PARAM_PORTDEFINITIONTYPE
+//!                         Attempt to set nFrameHeight & nFrameWidth -SetParameter
+//!                         Confirm values are updated in component
+//!                         Repeat multiple time with increases frame sizes
+//!							COmxILGraphicSinkVPB0Port::GetParameter
+//!                         COmxILGraphicSinkVPB0Port::SetParameter
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-001-03-HP
+END_TESTCASE MMVIDEO-OMX-GS-001-03-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-001-04-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-001-04-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Test default parameters assigned and exported into a struct using the correct index type
+//!                         Then change colour format using the same structs and confirm the value is updated
+//! @SYMTestExpectedResults Colour format is never changed from the default value
+//! @SYMTestActions         Using OMX_PARAM_PORTDEFINITIONTYPE set eColorFormat to OMX_COLOR_FormatCbYCrY
+//!                         Confirm eColorFormat value using OMX_VIDEO_PARAM_PORTFORMATTYPE & OMX_PARAM_PORTDEFINITIONTYPE
+//!                         Set negative values for eColorFormat & eCompressionFormat using OMX_PARAM_PORTDEFINITIONTYPE
+//!                         Using OMX_VIDEO_PARAM_PORTFORMATTYPE set eColorFormat to OMX_COLOR_FormatCbYCrY
+//!                         Confirm eColorFormat value using OMX_VIDEO_PARAM_PORTFORMATTYPE & OMX_PARAM_PORTDEFINITIONTYPE
+//!                         Set negative values for eColorFormat & eCompressionFormat using OMX_VIDEO_PARAM_PORTFORMATTYPE
+//!							COmxILGraphicSinkVPB0Port::GetParameter
+//!                         COmxILGraphicSinkVPB0Port::SetParameter
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-001-04-HP
+END_TESTCASE MMVIDEO-OMX-GS-001-04-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-001-05-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-001-05-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Test default parameters assigned and exported into a struct using the correct index type
+//!                         Then change buffer count using the same structs and confirm the value is updated
+//! @SYMTestExpectedResults nBufferCountActual value is updated in component
+//! @SYMTestActions         Using OMX_PARAM_PORTDEFINITIONTYPE confirm nBufferCountMin and nBufferCountActual values
+//!                         Set nBufferCountActual to below nBufferCountMin and confirm OMX_ErrorBadParameter
+//!                         Incrementally increase nBufferCountActual and set in component
+//!							COmxILGraphicSinkVPB0Port::GetParameter
+//!                         COmxILGraphicSinkVPB0Port::SetParameter
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-001-05-HP
+END_TESTCASE MMVIDEO-OMX-GS-001-05-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-001-06-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-001-06-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Test stride dependant values in supported struct types using the correct index type
+//! @SYMTestExpectedResults Stride value is updated and correct in component
+//! @SYMTestActions         Using OMX_PARAM_PORTDEFINITIONTYPE confirm stride dependant values
+//!                         Set nFrameWidth & eColorFormat and calculated correct stride
+//!                         Incrementally increase nFrameWidth and set in component
+//!							COmxILGraphicSinkVPB0Port::GetParameter
+//!                         COmxILGraphicSinkVPB0Port::SetParameter
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-001-06-HP
+END_TESTCASE MMVIDEO-OMX-GS-001-06-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-001-07-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-001-07-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Attempt to set the parameter of the graphics sink component
+//! @SYMTestExpectedResults Set command should return appropiate error and value is updated
+//! @SYMTestActions         Using OMX_PARAM_PORTDEFINITIONTYPE change values
+//!                         Attempt to set the following values nBufferCountMin, nBufferSize, nBufferAlignment
+//!                         nSliceHeight, bEnabled, bPopulated, bBuffersContiguous and eDomain
+//!							COmxILGraphicSinkVPB0Port::GetParameter
+//!                         COmxILGraphicSinkVPB0Port::SetParameter
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-001-07-HP
+END_TESTCASE MMVIDEO-OMX-GS-001-07-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-001-08-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-001-08-HP
+
+
+
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Attempt to set unsupported colour format types
+//! @SYMTestExpectedResults OMX_ErrorBadParameter and OMX_ErrorUnsupported setting should be returned
+//! @SYMTestActions         Using OMX_PARAM_PORTDEFINITIONTYPE and OMX_VIDEO_PARAM_PORTFORMATTYPE
+//!                         Set unsupported OMX_COLOR_FORMATTYPE and Set unsupported OMX_VIDEO_CODINGTYPE
+//!                         Both structs should return OMX_ErrorUnsupportedSetting when SetParmater called
+//!                         Use combination of unsupported colour formats to invoke OMX_ErrorBadParameter
+//!                         COmxILGraphicSinkVPB0Port::GetParameter
+//!                         COmxILGraphicSinkVPB0Port::SetParameter
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-001-08-HP
+END_TESTCASE  MMVIDEO-OMX-GS-001-08-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-001-09-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-001-09-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Get BytesPerPixel for all color formats
+//! @SYMTestExpectedResults A valid bytes per pixil TInt value is returned
+//! @SYMTestActions         Call COmxILMMBuffer::BytesPerPixel with OMX_COLOR_FORMATTYPE
+//!                         Call COmxILMMBuffer::BytesPerPixel with TUidPixelFormat
+//!                         COmxILMMBuffer::BytesPerPixel(TUidPixelFormat aPixelForamt)
+//!                         COmxILMMBuffer::BytesPerPixel(OMX_COLOR_FORMATTYPE aPixelForamt)
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-001-09-HP
+END_TESTCASE MMVIDEO-OMX-GS-001-09-HP
+
+// START_TESTCASE MMVIDEO-OMX-GS-001-00-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-001-00-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Allocate test for Graphic Sink component
+//! @SYMTestExpectedResults OOM testing should return correct errors
+//! @SYMTestActions         Allocate testing of the Graphic SInk OMX component
+//!                         COmxILGraphicSink::CreateComponent
+// Fails due to "OmxILPort: 1" Panic - under investigation. Test disabled as this failure sometimes interferes with subsequent test steps.
+// RUN_TEST_STEP !OOM 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-001-00-HP
+// END_TESTCASE MMVIDEO-OMX-GS-001-00-HP

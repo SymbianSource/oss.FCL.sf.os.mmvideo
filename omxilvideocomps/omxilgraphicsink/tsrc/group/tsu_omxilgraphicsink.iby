@@ -1,0 +1,41 @@
+/*
+* Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+#ifndef  TSU_OMXILGRAPHICSINK_IBY
+#define  TSU_OMXILGRAPHICSINK_IBY
+
+#ifdef NCP_COMMON_OMXIL_SHAI_SUPPORT_ENABLED
+
+// debug build
+file=ABI_DIR\BUILD_DIR\tsu_omxilgraphicsink.exe 	System\Libs\tsu_omxilgraphicsink.exe
+
+data=EPOCROOT##epoc32\data\c\omxil\tsu_omxilgraphicsink_01.script   		tsu_omxilgraphicsink_01.script
+data=EPOCROOT##epoc32\data\c\omxil\tsu_omxilgraphicsink_02.script   		tsu_omxilgraphicsink_02.script
+data=EPOCROOT##epoc32\data\c\omxil\tsu_omxilgraphicsink_03.script   		tsu_omxilgraphicsink_03.script
+data=EPOCROOT##epoc32\data\c\omxil\tsu_omxilgraphicsink_04.script   		tsu_omxilgraphicsink_04.script
+data=EPOCROOT##epoc32\data\c\omxil\tsu_omxilgraphicsink_05.script   		tsu_omxilgraphicsink_05.script
+data=EPOCROOT##epoc32\data\c\omxil\tsu_omxilgraphicsink_06.script   		tsu_omxilgraphicsink_06.script
+data=EPOCROOT##epoc32\data\c\omxil\tsu_omxilgraphicsink_07.script   		tsu_omxilgraphicsink_07.script
+data=EPOCROOT##epoc32\data\c\omxil\tsu_omxilgraphicsink_08.script   		tsu_omxilgraphicsink_08.script
+data=EPOCROOT##epoc32\data\c\omxil\tsu_omxilgraphicsink_09.script   		tsu_omxilgraphicsink_09.script
+data=EPOCROOT##epoc32\data\c\omxil\tsu_omxilgraphicsink_10.script   		tsu_omxilgraphicsink_10.script
+data=EPOCROOT##epoc32\data\z\omxil\configs\tsu_omxilgraphicsink.ini			omxil\configs\tsu_omxilgraphicsink.ini
+
+#endif // NCP_COMMON_OMXIL_SHAI_SUPPORT_ENABLED
+
+#endif //TSU_OMXILGRAPHICSINK_IBY

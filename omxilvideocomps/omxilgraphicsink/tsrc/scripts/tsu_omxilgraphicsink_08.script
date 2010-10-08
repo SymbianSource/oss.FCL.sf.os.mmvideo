@@ -1,0 +1,35 @@
+//
+// Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description: 
+//
+
+LOAD_SUITE tsu_omxilgraphicsink
+
+START_TESTCASE MMVIDEO-OMX-GS-008-01-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-008-01-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Test default parameters assigned and exported into a struct using the correct index type
+//!                         Then change ScaleFactor value using the same structs and confirm the value is updated
+//!                         Then change OutputSize value using the same structs and confirm the value is updated
+//!                         Then change InputCrop value using the same structs and confirm the value is updated
+//!                         Then change ExclusionRect value using the same structs and confirm the value is updated
+//! @SYMTestExpectedResults Parameters are changed in the graphicsink component
+//! @SYMTestActions         Declare and populate data structure OMX_CONFIG_SCALEFACTORTYPE
+//!                         Attempt to set xWidth & xHeight -SetParameter
+//!                         Confirm values are updated in component
+//!                         Repeat multiple time with the above mentioned parameters
+//!							COmxILGraphicSinkVPB0Port::GetParameter
+//!                         COmxILGraphicSinkVPB0Port::SetParameter
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-008-01-HP
+END_TESTCASE MMVIDEO-OMX-GS-008-01-HP

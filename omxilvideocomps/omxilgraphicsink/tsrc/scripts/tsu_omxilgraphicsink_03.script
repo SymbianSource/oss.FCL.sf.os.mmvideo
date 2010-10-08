@@ -1,0 +1,76 @@
+//
+// Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description: 
+//
+
+LOAD_SUITE tsu_omxilgraphicsink
+
+START_TESTCASE MMVIDEO-OMX-GS-003-01-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-003-01-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        HEAP test State Loaded to Idle transition test using UseBuffer
+//! @SYMTestExpectedResults HEAP mark reports no memory leaks
+//! @SYMTestActions         Send command OMX_StateIdle and use required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Repeat test once, using __MM_HEAP_MARK and __MM_HEAP_MARK to test HEAP size
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-003-01-HP
+END_TESTCASE MMVIDEO-OMX-GS-003-01-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-003-02-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-003-02-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Stress test State Loaded to Idle transition test using UseBuffer
+//! @SYMTestExpectedResults State is changed and callback is invoked
+//! @SYMTestActions         Send command OMX_StateIdle and use required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Repeat test multiple times
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-003-02-HP
+END_TESTCASE MMVIDEO-OMX-GS-003-02-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-003-03-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-003-03-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        State Loaded to Idle transition test using UseBuffer
+//!                         Changing the required number of buffers nBufferCountActual
+//! @SYMTestExpectedResults State is changed and callback is invoked
+//! @SYMTestActions         Send command OMX_StateIdle and Use required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Repeat & incrementally increase the number of required buffers
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-003-03-HP
+END_TESTCASE MMVIDEO-OMX-GS-003-03-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-003-04-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-003-04-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Negative use buffer test
+//! @SYMTestExpectedResults Use buffer returns OMX_ErrorIncorrectStateOperation
+//! @SYMTestActions         Attempt to use required number of buffer without using the send command
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-003-04-HP
+END_TESTCASE MMVIDEO-OMX-GS-003-04-HP

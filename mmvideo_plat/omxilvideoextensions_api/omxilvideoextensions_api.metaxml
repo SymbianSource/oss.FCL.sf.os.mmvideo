@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<api id="69d4a4d81e97004c779eb27a0cbf00a4" dataversion="2.0">
+	<name>OpenMAX IL Video Extensions API</name>
+	<description>Symbian-specific extension APIs exposed by the graphic sink and video scheduler OpenMAX IL components.</description>
+	<type>c++</type>
+	<collection>omxilvideocomps</collection>
+	<libs>
+		<!-- The OMX IL components that implement these APIs are ECom plug-ins, so there are no LIBs to link against. -->
+	</libs>
+	<release category="platform" sinceversion="^4" />
+	<attributes>
+		<htmldocprovided>no</htmldocprovided>
+		<adaptation>no<adaptation/>
+	</attributes>
+</api>

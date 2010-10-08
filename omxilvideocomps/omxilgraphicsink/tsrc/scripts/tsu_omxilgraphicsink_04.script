@@ -1,0 +1,129 @@
+//
+// Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description: 
+//
+
+LOAD_SUITE tsu_omxilgraphicsink
+
+START_TESTCASE MMVIDEO-OMX-GS-004-01-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-004-01-HP
+//! @SYMTestCaseDesc        HEAP test State Loaded to Idle to Executing using AllocateBuffer
+//! @SYMTestExpectedResults HEAP mark reports no memory leaks
+//! @SYMTestActions         Send command OMX_StateIdle and Allocate required number of buffers
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateExecuting and then send command OMX_StateIdle
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Repeat test once, using __MM_HEAP_MARK and __MM_HEAP_MARK to test HEAP size
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-004-01-HP
+
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-009-00-HP c:\omxil\configs\tsu_omxilgraphicsink.ini AllocateBufferStateOne
+
+END_TESTCASE MMVIDEO-OMX-GS-004-01-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-004-02-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-004-02-HP
+//! @SYMTestCaseDesc        Stress test State Loaded to Idle to Executing using AllocateBuffer
+//! @SYMTestExpectedResults State is changed and callback is invoked
+//! @SYMTestActions         Send command OMX_StateIdle and Allocate required number of buffers
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateExecuting and then send command OMX_StateIdle
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Repeat test multiple times
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-004-02-HP
+
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-009-00-HP c:\omxil\configs\tsu_omxilgraphicsink.ini AllocateBufferStateTwo
+
+END_TESTCASE MMVIDEO-OMX-GS-004-02-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-004-03-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-004-03-HP
+//! @SYMTestCaseDesc        Stress test State Loaded to Idle to Executing using AllocateBuffer
+//! @SYMTestExpectedResults State is changed and callback is invoked
+//! @SYMTestActions         Send command OMX_StateIdle and Allocate required number of buffers
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateExecuting and then send command OMX_StateIdle
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Increase buffer count incrementally and repeat test multiple times
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-004-03-HP
+
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-009-00-HP c:\omxil\configs\tsu_omxilgraphicsink.ini AllocateBufferStateThree
+
+END_TESTCASE MMVIDEO-OMX-GS-004-03-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-004-04-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-004-04-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Stress test State Loaded to Idle to Executing using AllocateBuffer
+//! @SYMTestExpectedResults State is changed and callback is invoked
+//! @SYMTestActions         Send command OMX_StateIdle and Allocate required number of buffers
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateExecuting and then send command OMX_StateIdle
+//!                         Repeat Idle to Executing to Idle 20 times
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Repeat test multiple times
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-004-04-HP
+END_TESTCASE MMVIDEO-OMX-GS-004-04-HP
+
+// START_TESTCASE MMVIDEO-OMX-GS-004-05-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-004-05-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Stress test State Loaded to Idle to Executing using AllocateBuffer
+//! @SYMTestExpectedResults State is changed and callback is invoked
+//! @SYMTestActions         Send command OMX_StateIdle and Allocate required number of buffers
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateExecuting and then send command OMX_StateIdle
+//!                         Repeat Idle to Executing to Idle 20 times
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Increase buffer count incrementally and repeat test multiple times
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+// Fails due to OOM - under investigation. Test disabled as this failure sometimes interferes with subsequent test steps.
+// RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-004-05-HP
+// END_TESTCASE MMVIDEO-OMX-GS-004-05-HP
+
+START_TESTCASE MMVIDEO-OMX-GS-004-06-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-004-06-HP
+//! @SYMTestType            UT
+//! @SYMTestCaseDesc        Move from executing to idle without waiting for DoFillBufferDone callback
+//! @SYMTestExpectedResults OpenMAX shuts down without error
+//! @SYMTestActions         Send command OMX_StateIdle and Allocate required number of buffers
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateExecuting and then send command OMX_StateIdle
+//!                         Fill buffer with data and call EmptyThisBuffer
+//!                         Within same method call Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateLoaded and call FreeHandle
+//!                         COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-004-06-HP
+END_TESTCASE MMVIDEO-OMX-GS-004-06-HP

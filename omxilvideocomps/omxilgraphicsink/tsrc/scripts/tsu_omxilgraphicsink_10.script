@@ -1,0 +1,38 @@
+//
+// Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description: 
+//
+
+LOAD_SUITE tsu_omxilgraphicsink
+
+START_TESTCASE MMVIDEO-OMX-GS-010-05-HP
+//! @SYMTestCaseID          MMVIDEO-OMX-GS-010-05-HP
+//! @SYMTestCaseDesc        Return to OMX_StateLoaded from Empty this buffer asynchronously
+//! @SYMTestExpectedResults State returns to OMX_StateLoaded without error or memory leak
+//! @SYMTestActions         Send command OMX_StateIdle and Allocate required number of buffers
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateExecuting and wait for callback to return OMX_EventCmdComplete
+//!                         Fill Allocated buffer with colour using filled CCameraBuffer*
+//!                         Call Empty this buffer and wait for DoEmptyBufferDone callback
+//!                         Send command OMX_StateIdle prior to Empty this buffer done callback
+//!							Or in second Empty this buffer done callback
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!                         Send command OMX_StateLoaded and Free required number of buffer
+//!                         Wait for callback to return OMX_EventCmdComplete
+//!							COmxILGraphicSinkProcessingFunction::StateTransitionIndication
+//!                         COmxILGraphicSinkProcessingFunction::CreateBufferL
+//!                         COmxILGraphicSinkProcessingFunction::DestroyBuffer
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-010-00-HP z:\omxil\configs\tsu_omxilgraphicsink.ini DoBufferDoneFive
+RUN_TEST_STEP 100 tsu_omxilgraphicsink MMVIDEO-OMX-GS-010-00-HP z:\omxil\configs\tsu_omxilgraphicsink.ini DoBufferDoneSix
+END_TESTCASE MMVIDEO-OMX-GS-010-05-HP

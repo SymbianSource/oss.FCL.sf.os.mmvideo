@@ -1,0 +1,56 @@
+/*
+* Copyright (c) 2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+
+#include "../src/omxilvideoscheduler.hrh"
+
+TARGET		omxilvideoscheduler.dll
+CAPABILITY	ALL -TCB
+TARGETTYPE	PLUGIN
+UID			0x10009D8D KUidSymbianOmxILVideoSchedulerDll
+VENDORID	0x70000001
+
+USERINCLUDE		../src
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+
+SOURCEPATH	../src
+
+SOURCE	buffercopier.cpp
+SOURCE  buffercopierstatemonitor.cpp
+SOURCE	comxilvideoscheduler.cpp
+SOURCE	comxilvideoschedulerinputport.cpp
+SOURCE	comxilvideoscheduleroutputport.cpp
+SOURCE	comxilvideoschedulerpf.cpp
+SOURCE	resourcefilereader.cpp
+
+RESOURCE	omxilvideoscheduler.rss
+
+START RESOURCE	videoscheduler.rss
+TARGETPATH		resource/videoscheduler
+HEADER
+END
+
+nostrictdef
+
+LIBRARY			euser.lib bafl.lib efsrv.lib inetprotutil.lib ecom.lib
+LIBRARY			omxilcomponentcommon.lib
+STATICLIBRARY	omxilcomponentif.lib
+
+// Uncomment to activate debug tracing in this module
+// MACRO                _OMXIL_COMMON_DEBUG_TRACING_ON

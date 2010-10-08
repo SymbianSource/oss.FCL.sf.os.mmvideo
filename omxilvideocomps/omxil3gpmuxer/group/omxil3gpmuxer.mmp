@@ -1,0 +1,57 @@
+/*
+* Copyright (c) 2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+
+#include "../src/omxil3gpmuxer.hrh"
+
+TARGET		omxil3gpmuxer.dll
+TARGETTYPE	PLUGIN
+UID			0x10009D8D KUidSymbianOmxIL3gpMuxerDll
+CAPABILITY	All -TCB
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+USERINCLUDE ../src
+
+SOURCEPATH ../src
+
+SOURCE comxil3gpmuxer.cpp
+SOURCE comxil3gpmuxerprocessingfunction.cpp
+SOURCE comxil3gpmuxerconfigmanager.cpp
+SOURCE comxil3gpmuxervideoinputport.cpp
+SOURCE comxil3gpmuxeraudioinputport.cpp
+SOURCE c3gpmuxer.cpp
+SOURCE endwaitao.cpp
+SOURCE c3gpmuxerwriterthreadobserver.cpp 
+
+
+START RESOURCE		omxil3gpmuxer.rss
+TARGET			omxil3gpmuxer.rsc
+END
+
+nostrictdef
+
+LIBRARY euser.lib
+LIBRARY ecom.lib
+LIBRARY efsrv.lib
+LIBRARY inetprotutil.lib
+LIBRARY omxilcomponentcommon.lib
+STATICLIBRARY omxilcomponentif.lib
+LIBRARY	3gplibrary.lib
+
+// Uncomment to activate debug tracing in this module
+//MACRO _OMXIL_COMMON_DEBUG_TRACING_ON

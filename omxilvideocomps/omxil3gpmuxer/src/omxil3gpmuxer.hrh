@@ -1,0 +1,25 @@
+/*
+* Copyright (c) 2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+
+#ifndef OMXIL3GPMUXER_HRH_
+#define OMXIL3GPMUXER_HRH_
+
+#define KUidSymbianOmxIL3gpMuxerDll         0x10285C33
+#define KUidSymbianOmxIL3gpMuxer            0x10285C34
+
+#endif /*OMXIL3GPMUXER_HRH_*/
